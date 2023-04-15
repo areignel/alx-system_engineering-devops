@@ -1,15 +1,1 @@
-Are you curious about what happens when you type "google.com" in your browser and press Enter? Well, get ready for a wild ride, because it's not just a simple process of displaying a web page!
-
-First up, we have the Domain Name System (DNS). This is like the internet's phone book, and it's what your browser uses to find the IP address associated with "google.com". Without DNS, you'd have to remember the IP address of every website you wanted to visit - talk about a brain workout!
-
-Once your browser has the IP address, it's time to establish a connection with the Google server. This is where the HyperText Transfer Protocol (HTTP) comes into play. HTTP is like a language that allows your browser and the Google server to communicate with each other.
-
-After exchanging some pleasantries, your browser sends a request to the Google server for the search engine home page. Think of it like asking a restaurant for a menu - you want to see what's available before you place your order.
-
-The Google server then gets to work, processing the request and finding all the files and resources needed to make up the search engine home page. This includes the HTML, CSS, and JavaScript code that make everything look and function the way it does.
-
-Finally, your browser receives the code and starts rendering the web page. It's like building a house - first, you lay the foundation with HTML, then you add the walls and furniture with CSS, and finally, you add the bells and whistles with JavaScript.
-
-And just like that, the Google search engine home page is displayed on your screen! It may seem like a lot of work, but it all happens in the blink of an eye.
-
-So the next time you type "google.com" in your browser and press Enter, remember all the hard work and technology that goes into making it happen. And who knows, maybe you'll impress your friends with your newfound knowledge of the internet's inner workings.
+https://medium.com/@alajembareignel/what-happens-when-you-type-google-com-in-your-browser-and-press-enter-ee7232985792
