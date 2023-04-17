@@ -10,4 +10,3 @@ ufw default allow outgoing
 ufw allow 22/tcp
 ufw allow 443/tcp
 ufw allow 80/tcp
-chmod +x 0-block_all_incoming_traffic_but
