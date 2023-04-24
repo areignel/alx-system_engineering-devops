@@ -1,33 +1,23 @@
 #!/usr/bin/python3
-"""fetches information from JSONplaceholder API and exports to JSON"""
+"""Gathers all employees data from an API and exports it to a JSON file"""
+import json
+import requests
 
-from json import dump
-from requests import get
-from sys import argv
+URL = 'https://jsonplaceholder.typicode.com'
 
-if __name__ == "__main__":
-    users_url = "https://jsonplaceholder.typicode.com/users"
-    users_result = get(users_url).json()
-
-    big_dict = {}
-    for user in users_result:
-        todo_list = []
-
-        pep_fix = "https://jsonplaceholder.typicode.com"
-        todos_url = pep_fix + "/user/{}/todos".format(user.get("id"))
-        name_url = "https://jsonplaceholder.typicode.com/users/{}".format(
-            user.get("id"))
-
-        todo_result = get(todos_url).json()
-        name_result = get(name_url).json()
-        for todo in todo_result:
-            todo_dict = {}
-            todo_dict.update({"username": name_result.get("username"),
-                              "task": todo.get("title"),
-                              "completed": todo.get("completed")})
-            todo_list.append(todo_dict)
-
-        big_dict.update({user.get("id"): todo_list})
-
-    with open("todo_all_employees.json", 'w') as f:
-        dump(big_dict, f)
+if __name__ == '__main__':
+    u_resp = requests.get('{}/users'.format(URL)).json()
+    todos_resp = requests.get('{}/todos'.format(URL)).json()
+    emps_data = {}
+    for emp in u_resp:
+        emp_id = emp.get('id')
+        username = emp.get('username')
+        todos = [t for t in todos_resp if t.get('userId') == emp_id]
+        tasklist = list(map(lambda x: {
+            'username': username,
+            'task': x.get('title'),
+            'completed': x.get('completed')
+            }, todos))
+        emps_data[str(emp_id)] = tasklist
+    with open('todo_all_employees.json', 'w') as f:
+        json.dump(emps_data, f)
